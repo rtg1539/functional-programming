@@ -290,6 +290,55 @@ _go(users,
     console.log
 )
 
+// 6. 다형성 높이기
+_each(null, console.log)
+console.log( _map(null, function() { return v }) )
+
+_go(null,
+    _filter(function(v) { return v % 2; }),
+    _map(function(v) { return v * 2; }),
+    console.log
+)
+
+// _keys
+console.log( _keys({ name: 'ID', age: 33 }) );
+console.log( _keys([1, 2, 3, 4]) );
+console.log( _keys([10]) );
+console.log( _keys(null) )
+
+/*function _isObject(obj) {
+    return typeof obj == 'object' && !!obj;
+}
+
+function _keys(obj) {
+    return _isObject(obj) ? Object.keys(obj) : [];
+}*/
+
+_each({
+    13: 'ID',
+    19: 'HD',
+    29: 'YD'
+}, function(name) { console.log(name) })
+
+console.log(
+    _map({
+        13: 'ID',
+        19: 'HD',
+        29: 'YD'
+    }, function(name) { return name.toLowerCase(); })
+)
+
+_go(
+    null,
+    _map(function(user) {
+        return user.name;
+    }),
+    _map(function(name) {
+        return name.toLowerCase();
+    }),
+    console.log
+)
+
 </script>
 </body>
 </html>

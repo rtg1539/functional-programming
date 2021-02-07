@@ -30,9 +30,20 @@ function _map(list, mapper) {
   return new_list;
 }
 
+function _isObject(obj) {
+  return typeof obj == 'object' && !!obj;
+}
+
+function _keys(obj) {
+  return _isObject(obj) ? Object.keys(obj) : [];
+}
+
+var _length = _get('length');
+
 function _each(list, iter) {
-  for (var i = 0; i < list.length; i++) {
-    iter(list[i]);
+  var keys = _keys(list);
+  for (var i = 0, len = keys.length; i < len; i++) {
+    iter(list[keys[i]]);
   }
   return list;
 }
