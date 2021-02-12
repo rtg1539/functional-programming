@@ -80,3 +80,13 @@ function _go(arg) {
   var fns = _rest(arguments);
   return _pipe.apply(null, fns)(arg);
 }
+
+var _values = _map(_identity);
+
+function _identity(val) {
+  return val;
+}
+
+var _pluck = _curryr(function(data, key) {
+  return _map(data, _get(key));
+});
