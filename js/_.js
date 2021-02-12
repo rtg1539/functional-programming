@@ -90,3 +90,15 @@ function _identity(val) {
 var _pluck = _curryr(function(data, key) {
   return _map(data, _get(key));
 });
+
+function _negate(func) {
+  return function(val) {
+    return !func(val);
+  }
+}
+
+var _reject = _curryr(function(data, predi) {
+  return _filter(data, _negate(predi));
+});
+
+var _compact = _filter(_identity);

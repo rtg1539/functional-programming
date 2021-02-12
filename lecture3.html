@@ -28,10 +28,25 @@ console.log( _pluck(users, 'name') );
 console.log( _pluck(users, 'id') );
 // [33, 22, 11, ...]
 
+// 2. 거르기 - filter
+console.log(
+  _filter(users, function(user) {
+    return user.age > 30;
+  })
+);
+
+//   1. reject
+console.log(
+  _reject(users, function(user) {
+    return user.age > 30;
+  })
+);
+
+//   2. compact
+console.log(
+  _compact([1, 2, 0, false, null, {}]));
 
 
-
-// 2. 거르기 - filter, reject, compact, without
 // 3. 찾아내기 - find, some, every
 // 4. 접기 - reduce, min, max, group_by, count_by
 
